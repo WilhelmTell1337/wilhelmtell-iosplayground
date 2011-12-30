@@ -4,7 +4,7 @@ chmod 755 chmod755.sh
 cd ~
 rm -rf iPhone4iOS5
 rm -rf wilhelmtell-iosplayground
-hg clone https://code.google.com/p/iphone-dataprotection/
+git clone https://github.com/WilhelmTell1337/wilhelmtell-iosplayground
 cd ~/Desktop
 rm -rf iPhone4iOS5
 rm -rf wilhelmtell-iosplayground
