@@ -2,13 +2,14 @@ cd ~/Desktop
 chmod 755 chmod755.sh
 ./chmod755.sh
 cd ~
-rm -rf iphone-dataprotection
 rm -rf iPhone4iOS5
+rm -rf wilhelmtell-iosplayground
 hg clone https://code.google.com/p/iphone-dataprotection/
 cd ~/Desktop
 rm -rf iPhone4iOS5
+rm -rf wilhelmtell-iosplayground
 cd ~
-mv iphone-dataprotection iPhone4iOS5
+mv wilhelmtell-iosplayground iPhone4iOS5
 cp -R -f iPhone4iOS5 ~/Desktop/iPhone4iOS5
 cd ~/Desktop/iPhone4iOS5
 make -C img3fs/
