@@ -10,9 +10,9 @@ They should work as well on :
 Devices older than iPhone 3GS are not supported.
 
 Requirements
-    iOS 5.0 IPSW for the target device
+    iOS 5.0.1 IPSW for the target device
         even if the target device runs iOS 4 (iOS 5 kernel is backward compatible)
-    Mac OS X >= 10.6 : for builing the tools and ramdisk
+    Mac OS X =< 10.7 : for builing the tools and ramdisk
         iOS SDK 4.x or 5.x
         ldid
         MacFUSE or OSXFuse
@@ -22,6 +22,9 @@ Requirements
         construct
         progressbar
     redsn0w : for booting the ramdisk
+    
+    MPFR & GNU: For Compiling Libraries
+
 
 Mac OS X is only required to build the custom ramdisk. Once this is done, Windows can be used to boot the ramdisk and interact with it, either through ssh or using the python scripts provided. Linux is not supported.
 
@@ -50,28 +53,28 @@ Building custom ramdisk & kernel (Mac OS X)
 
     make -C img3fs/
 
-    curl -O -L https://sites.google.com/a/iphone-dev.com/files/home/redsn0w_mac_0.9.9b5.zip
-    unzip redsn0w_mac_0.9.9b5.zip
-    cp redsn0w_mac_0.9.9b5/redsn0w.app/Contents/MacOS/Keys.plist .
+    curl -O -L https://sites.google.com/a/iphone-dev.com/files/home/redsn0w_mac_0.9.10b3.zip
+    unzip redsn0w_mac_0.9.10b3.zip
+    cp redsn0w_mac_0.9.10b3/redsn0w.app/Contents/MacOS/Keys.plist .
 
     python python_scripts/kernel_patcher.py IOS5_IPSW_FOR_YOUR_DEVICE
-        Decrypting kernelcache.release.n88
+        Decrypting kernelcache.release.n90
         Unpacking ...
         Doing CSED patch
         Doing getxattr system patch
         Doing _PE_i_can_has_debugger patch
         Doing IOAESAccelerator enable UID patch
         Doing AMFI patch
-        Patched kernel written to kernelcache.release.n88.patched
-        Created script make_ramdisk_n88ap.sh, you can use it to (re)build the ramdisk
+        Patched kernel written to kernelcache.release.n90.patched
+        Created script make_ramdisk_n90ap.sh, you can use it to (re)build the ramdisk
 
-    sh ./make_ramdisk_n88ap.sh
+    sh ./make_ramdisk_n90ap.sh
 
 Using the ramdisk
 
 The first step is to boot the ramdisk and custom kernel. This can be done easily on OSX or Windows using redsn0w (follow redsn0w instructions to put the device in DFU mode).
 
-    ./redsn0w_mac_0.9.9b5/redsn0w.app/Contents/MacOS/redsn0w -i IOS5_IPSW_FOR_YOUR_DEVICE -r myramdisk.dmg -k kernelcache.release.n88.patched
+    ./redsn0w_mac_0.9.10b3/redsn0w.app/Contents/MacOS/redsn0w -i IOS5_IPSW_FOR_YOUR_DEVICE -r myramdisk.dmg -k kernelcache.release.n90.patched
 
 If the process fails with the "No identifying data fetched" error, make sure that the host computer is connected to the internet.
 After redsn0w is done, the ramdisk should boot in verbose mode. Once "OK" appears on the screen, the custom ramdisk has successfully started. The device is now accessible using ssh over usbmux. Use the following command to setup port redirections:
