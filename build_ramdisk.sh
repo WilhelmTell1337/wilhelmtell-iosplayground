@@ -49,7 +49,6 @@ cp ramdisk_tools/restored_external /Volumes/ramdisk/usr/local/bin
 cp ramdisk_tools/bruteforce ramdisk_tools/device_infos /Volumes/ramdisk/var/root
 cp ramdisk_tools/scripts/* /Volumes/ramdisk/var/root
 
-#if present, copy ssh public key to ramdisk
 if [ -f ~/.ssh/id_rsa.pub ]; then
 	mkdir /Volumes/ramdisk/var/root/.ssh
 	cp ~/.ssh/id_rsa.pub /Volumes/ramdisk/var/root/.ssh/authorized_keys
