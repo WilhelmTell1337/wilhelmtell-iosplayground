@@ -49,14 +49,28 @@ Mercurial (http://mercurial.selenic.com/) is also required to checkout the sourc
 
 Building custom ramdisk & kernel (Mac OS X)
 
-    hg clone https://code.google.com/p/iphone-dataprotection/ 
-    cd iphone-dataprotection
+    git clone https://github.com/WilhelmTell1337/wilhelmtell-iosplayground 
+    cd ~
+    cd wilhelmtell-ios*
 
     make -C img3fs/
 
     curl -O -L https://sites.google.com/a/iphone-dev.com/files/home/redsn0w_mac_0.9.10b3.zip
     unzip redsn0w_mac_0.9.10b3.zip
     cp redsn0w_mac_0.9.10b3/redsn0w.app/Contents/MacOS/Keys.plist .
+
+Be careful! The n(number) is the model number (n90ap = iPhone 4GSM)
+    Model Numbers:
+
+n72 iPod 2G
+n18 iPod 3G
+n81 iPod 4G
+n88 iPhone 3GS
+n90 iPhone 4 GSM
+n92 iPhone 4 CMDA
+k48 iPad 1 (for the iPad 1, it is k48, not !! n48 !!)
+
+ >> pay attention to other steps, that require a model number! <<
 
     python python_scripts/kernel_patcher.py IOS5_IPSW_FOR_YOUR_DEVICE
         Decrypting kernelcache.release.n90
