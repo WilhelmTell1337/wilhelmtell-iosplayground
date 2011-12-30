@@ -7,7 +7,7 @@ They should work as well on :
     iPad 1
     iPhone 4 CDMA
     iPod touch 3G & 4G
-Devices older than iPhone 3GS are not supported.
+Devices older than iPhone 3GS or iPod Touch 3G are not supported.
 
 Requirements
     iOS 5.0.1 IPSW for the target device
@@ -15,7 +15,7 @@ Requirements
     Mac OS X =< 10.7 : for builing the tools and ramdisk
         iOS SDK 4.x or 5.x
         ldid
-        MacFUSE or OSXFuse
+        MacFUSE or OSXFuse (Macfuse sucks!)
     Python : for building a custom kernel and computer-side tools
         pycrypto
         M2crypto
@@ -34,13 +34,14 @@ Installing dependencies (Mac OS X)
     chmod +x ldid
     sudo mv ldid /usr/bin/
 
-    #install OSXFuse for img3fs
+    --> install OSXFuse for img3fs
+
     curl -O -L https://github.com/downloads/osxfuse/osxfuse/OSXFUSE-2.3.4.dmg
     hdiutil mount OSXFUSE-2.3.4.dmg
     sudo installer -pkg /Volumes/FUSE\ for\ OS\ X/Install\ OSXFUSE\ 2.3.pkg -target /
     hdiutil eject /Volumes/FUSE\ for\ OS\ X/
 
-    #you will need these python modules on Windows as well
+    --> Python modules --> needed for windows too
     sudo ARCHFLAGS='-arch i386 -arch x86_64' easy_install pycrypto
     sudo easy_install M2crypto construct progressbar
 
